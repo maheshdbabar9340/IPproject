@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign up page</title>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href='https://fonts.googleapis.com/css?family=Zilla Slab Highlight' rel='stylesheet'>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<style>
+     body{
+                background-image:url(blocks.jpg);
+                display: block;
+                background-size:cover;
+                background-repeat:no-repeat;
+            }
+                .upper{
+    position:absolute;
+    left:auto;
+    top: 2%;
+    left: 37%;
+    }
+    .upper a{
+                        font-family:'Zilla Slab Highlight';
+                font-size:50px;
+                display:block;
+                color: whitesmoke;
+                text-align:left;
+                margin: 0px 0px;
+                padding: 0px 0px;
+                text-decoration: none;
+                top=0%;
+    }   
+    upper a:hover{
+                opacity: 0.8;
+    }
+    .login-box
+            {
+                    background: rgba(0,0,0,0.5);
+                    color:#fff;
+                    margin-left: 35%;
+                    margin-top: 10%;
+                    margin-bottom: 10%;
+                    position: absolute;
+                    box-sizing: border-box;
+                    padding-left: 80px;
+                    padding-right: 80px;
+                
+            }
+     
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width:50%;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+    input{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid skyblue;
+     margin-top:10px;
+     color:white;
+     }
+    ::placeholder{
+        color:whitesmoke;
+        opacity: 1;
+    }
+    button:hover {
+    opacity: 0.8;
+}
+            
+    </style>
+    </head>
+    <body>
+        <div class="upper">
+        <a class="active" href="#home" style="color:black"><i class="material-icons" style="font-size:35px;color:black;">cast_connected</i><span>      </span>NEPTUNIA</a>
+        </div>
+        <div class="login-box">
+        <form action="/action_page.php" style="color: cornsilk">
+        <p style="font-size:20px;">Sign up<i class="material-icons" style="font-size:20px;padding: 10px;">arrow_forward</i></p>    
+            <div class="details">
+            <label for="fsname">
+                <p><b>Name</b></label>
+                <br>
+                <input type="text" placeholder="Enter Full Name" name="fsname" required>
+                <br>
+                <label for="email">
+                <b>Email</b>
+                </label>
+                <br>
+                <input type="text" placeholder="Enter email id" id="email_field" required>
+                <br>
+                <label for="DOB">
+                    <b>Date of Birth</b></label>
+                <br>
+                <input type="date" name="DOB" placeholder="mm/dd/yyyy" required>
+                <br>
+                <label for="pass">
+                <b>Password</b></label>
+                <br>
+                <input placeholder="Enter password" type="password" id="password_field" required>
+                <br>
+                <label for="cpass">
+                <b>confirm Password</b>
+                </label>
+                <br>
+                <input placeholder="Enter password again" type="password" name="pass" required>
+                <button type="submit" onclick="sign()">Submit</button>
+        
+        </div>
+    </form>
+        </div>
+        <div class="user_div"><h1>Account created Successfully</h1></div>
+        <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBwsAGzY7oZr-zoQJj1GkqFKcNHbL3p7V0",
+    authDomain: "video-stream-bfc99.firebaseapp.com",
+    databaseURL: "https://video-stream-bfc99.firebaseio.com",
+    projectId: "video-stream-bfc99",
+    storageBucket: "video-stream-bfc99.appspot.com",
+    messagingSenderId: "63189921909"
+  };
+  firebase.initializeApp(config);
+</script>
+    <script src="sign.js"></script>
+    </body>
+
+
+</html>
