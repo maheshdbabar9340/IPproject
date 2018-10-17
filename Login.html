@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Zilla Slab Highlight' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script type="text/javascript">
+        function validatePassword(){
+    var psw = document.getElementById("psw");
+var psw_repeat = document.getElementById("psw_repeat");
+
+   if(psw.value != psw_repeat.value) {
+     window.alert("Passwords don't match");
+  }
+  else{
+    create();
+  }
+}
+//Hence Password Confirme
+// If user clicks anywhere outside of the modal, Modal will close
+
+var modal = document.getElementById('modal-wrapper');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}</script>
+<style>
+    body{
+        background-image:url(randomobj.jpg);
+        background-attachment: absolute;
+    }
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width:50%;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+.
+    button:hover {
+    background-color: black;
+}
+    .imgcontainer {
+    text-align: left;
+    margin: 24px 0 12px 0;
+}
+    img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+    .upper a{
+                font-family:'Zilla Slab Highlight';
+                font-size:50px;
+                display:block;
+                color: white;
+                text-align:center;
+    }   
+    .upper a:hover{
+        opacity: 0.8;
+    }
+    .login-box{
+        
+        background: rgba(0,0,0,0.5);
+        color:#fff;
+        position: absolute;
+        top: 100px;
+        left:10%;
+        right:10%;
+        padding-left:10%;
+        padding-right:10%;
+    }
+ input{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid skyblue;
+     margin-top:10px;
+     width: 100%;
+     height: 30px;
+     color:white;
+     }
+    ::placeholder{
+        color:whitesmoke;
+        opacity: 1;
+    }
+/*SIGN UP PAGE*/
+/*Style of sign up page*/
+*{margin:0px; padding:0px; font-family:Helvetica, Arial, sans-serif;}
+
+/* Full-width input fields */
+.ip1 {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 26px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:16px;
+    color:black;
+}
+.ph::-webkit-input-placeholder {
+    color: grey;
+}
+
+/* Add a background color when the inputs get focus */
+input:focus{
+    border-color: blue;
+}
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 26px;
+    border: none;
+    cursor: pointer;
+    width: 90%;
+    font-size:20px;
+    opacity: 1;
+}
+button:hover {
+    opacity: 0.9;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+/* The Modal (background) */
+.modal {
+    display:none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 2% auto 15% auto;
+    border: 1px solid #888;
+    width: 90%; 
+    padding-bottom: 30px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close:hover,.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    animation: zoom 0.6s
+}
+@keyframes zoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/*END OF SIGN UP PAGE*/
+
+
+
+ </style>
+ 
+ </head>
+<body>
+
+<div id="modal-wrapper" class="modal">
+  
+  <form class="modal-content animate">
+        
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+      <img src="1.png" alt="Avatar" class="avatar">
+      <h1 style="text-align:center">Sign Up</h1>
+    </div>
+
+    <div class="container">
+
+      <label for="name"><pre><b>      Name</b></pre></label>
+      <input class="ip1 ph" type="text" placeholder="Enter First Name" id="name" autofocus="on" required>
+      
+      <label for="email"><pre><b>      Email</b></pre></label>
+      <input class="ip1 ph" type="email" placeholder="sample@example.com" name="uname" id="email" required>
+      
+      <label for="phone"><pre><b>      Phone </b></pre></label>
+      <input class="ip1 ph" type="phone" placeholder="10 digit number" name="phone" id="phone" required>
+
+      <label for="psw"><pre><b>      Password</b></pre></label>
+      <input class="ip1 ph" type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+      <label for="psw_repeat"><pre><b>      Repeat Password</b></pre></label>
+      <input class="ip1 ph" type="password" placeholder="Repeat Password" name="psw_repeat" id="psw_repeat" onkeyup="validatePassword" required>
+      
+      <button type="button" onclick="validatePassword()">Sign Up</button>    
+    </div>
+    
+  </form>
+  
+</div>
+    <div id="login_div">
+        <div class="upper">
+            <a class="active" href="#home"><i class="material-icons" style="font-size:50px;">cast_connected</i>NEPTUNIA</a>
+        </div>
+    <div class="login-box">
+        <form id="app" style="text-align: center;">
+        <p style="font-size:20px;">Login<span><i class="material-icons" style="font-size:20px;">arrow_forward</i></span></p> 
+        <div class="imgcontainer" style="text-align: center;">
+        <img src="avatar.png" alt="Avatar" class="avatar" style="text-align: center">
+        <br>
+        <b>Hello user....</b>
+        </div>
+    <div class="details">
+            <b>Email</b>
+            <br>
+            <input type="email"  placeholder="Enter email id" required id="email_field">
+            <br>
+            <b>Password</b>
+            <br>
+            <input type="password" placeholder="Enter Password" onkeyup="if (event.keyCode==13){login();}" required id="password_field">
+            <br>
+            <button type="button" onclick="login()">Login</button>
+            <button type="button" onclick="document.getElementById('modal-wrapper').style.display='block'">Sign up</button>
+
+
+
+   </div>
+   </form>
+   </div>
+   </div>
+   </body> 
+<script>
+    //SIGNUP PAGE
+   //Password and Confirm password must be equal
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBwsAGzY7oZr-zoQJj1GkqFKcNHbL3p7V0",
+    authDomain: "video-stream-bfc99.firebaseapp.com",
+    databaseURL: "https://video-stream-bfc99.firebaseio.com",
+    projectId: "video-stream-bfc99",
+    storageBucket: "video-stream-bfc99.appspot.com",
+    messagingSenderId: "63189921909"
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript" src="login.js"></script>
+</html>

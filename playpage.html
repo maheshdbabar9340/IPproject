@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href='https://fonts.googleapis.com/css?family=Zilla Slab Highlight' rel='stylesheet'>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Crete Round' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link href="cssstyling.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+        } 
+      else {
+        x.className = "topnav";
+        }
+      }
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBwsAGzY7oZr-zoQJj1GkqFKcNHbL3p7V0",
+    authDomain: "video-stream-bfc99.firebaseapp.com",
+    databaseURL: "https://video-stream-bfc99.firebaseio.com",
+    projectId: "video-stream-bfc99",
+    storageBucket: "video-stream-bfc99.appspot.com",
+    messagingSenderId: "63189921909"
+  };
+  firebase.initializeApp(config);
+</script>
+<script type="text/javascript" src="logout.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <title>Enjoy your video!</title> 
+</head>
+<body class="playbody">
+  <div class="topnav" id="myTopnav">
+    <a class="active" href="mainpage.php" style="font-family: 'Crete Round'; font-size:22px;">NEPTUNIA <i class="fa fa-youtube-play"></i></a>
+    <a id="ababab" href="about.html">About</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+    <a id="apapap" id="log" onclick="logout()">Logout</a>
+    <input class="sbox" type="text" id="search" onkeydown = "if (event.keyCode == 13){heh();}" placeholder="Search...">
+    </div>
+
+    <!--<img src="search.png" alt="magnifying glass">
+    <a href="#fa fa-search"><i class="fa fa-search" style="font-size: 25px; margin-top: 10px;"></i></a>-->
+
+    <script type="text/javascript">
+      function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+        } 
+      else {
+        x.className = "topnav";
+        }
+      }
+      function getTitle(videoid){
+            var xhttp1= new XMLHttpRequest();
+            xhttp1.onreadystatechange = function(){
+                if(this.readyState==4 && this.status== 200){
+                    var myob=JSON.parse(this.responseText);
+                    var haathi=myob.items[0].snippet.title;
+                    document.getElementById('para').innerHTML=haathi;
+        }
+    };
+    xhttp1.open("GET",`https://www.googleapis.com/youtube/v3/videos?id=${videoid}&key=AIzaSyDdD_Q_6M_3t4fJ3-yLo5reUqr9w1Nqlq0&part=snippet`,true);
+            xhttp1.send();
+        }
+        function abc(){
+    var queryString=decodeURIComponent(window.location.search);
+  queryString = queryString.substring(1);
+  q=queryString.split("=");
+  document.getElementById('play').src=`https://www.youtube.com/embed/${q[1]}?autoplay=1`;
+  getTitle(q[1]);
+  }
+  window.onload=abc;
+  function heh()
+{
+  search1=document.getElementById("search").value;
+   var querystring= "?query=" + search1;
+   window.location.href="aftersearch.html" + querystring;
+   
+        }
+
+    </script>
+    <div class="bigdiv">
+    <div class="resp-container" id="play1">
+    <iframe id="play" height="360" width="640" src="https://www.youtube.com/embed/?autoplay=1" allow="autoplay" allow="encrypted-media" allowFullScreen="true"></iframe>
+</div>
+<div class="resp-container2">
+  <p id="para"></p>
+</div>
+</div>
+</body>
+</html>
